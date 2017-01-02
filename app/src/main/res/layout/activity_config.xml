@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_config"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.dudco.whatsyourname.ConfigActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical">
+        <EditText
+            android:id="@+id/edit_config_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="이메일"
+            android:background="@drawable/background_config"
+            android:padding="6dp"
+            android:layout_marginBottom="7dp"/>
+
+        <EditText
+            android:id="@+id/edit_config_career"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="직책"
+            android:background="@drawable/background_config"
+            android:padding="6dp"
+            android:layout_marginBottom="7dp"/>
+
+        <EditText
+            android:id="@+id/edit_config_belong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="소속"
+            android:background="@drawable/background_config"
+            android:padding="6dp"
+            android:layout_marginBottom="7dp"/>
+
+        <EditText
+            android:id="@+id/edit_config_pax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="팩스"
+            android:background="@drawable/background_config"
+            android:padding="6dp"
+            android:layout_marginBottom="7dp"/>
+        <EditText
+            android:id="@+id/edit_config_des"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background_config"
+            android:padding="6dp"
+            android:hint="소개"
+            android:gravity="top|left"
+            android:layout_marginBottom="5dp"/>
+    </LinearLayout>
+</RelativeLayout>

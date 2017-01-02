@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_register"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.dudco.whatsyourname.RegisterActivity">
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+        <EditText
+            android:id="@+id/edit_reg_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="아이디"
+            android:layout_marginBottom="7dp"/>
+
+        <EditText
+            android:id="@+id/edit_reg_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="비밀번호"
+            android:layout_marginBottom="7dp"
+            android:inputType="textPassword"/>
+
+        <EditText
+            android:id="@+id/edit_reg_repass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="비밀번호 확인"
+            android:layout_marginBottom="7dp"
+            android:inputType="textPassword"/>
+
+        <EditText
+            android:id="@+id/edit_reg_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="이름"
+            android:layout_marginBottom="7dp"/>
+
+        <EditText
+            android:id="@+id/edit_reg_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="전화번호(-제외)"
+            android:layout_marginBottom="7dp"
+            android:inputType="number" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="생년월일"
+            android:textSize="17sp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="3">
+
+            <Spinner
+                android:id="@+id/spinner_reg_year"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/background_spinner"
+                android:layout_marginBottom="7dp"
+                android:layout_marginRight="7dp"/>
+
+            <Spinner
+                android:id="@+id/spinner_reg_month"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/background_spinner"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"/>
+
+            <Spinner
+                android:id="@+id/spinner_reg_day"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/background_spinner"
+                android:layout_marginBottom="7dp"
+                android:layout_marginLeft="7dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_reg_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="회원가입"
+        android:layout_below="@id/container"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/backgroun_loginbtn"
+        android:textColor="@color/white" />
+</RelativeLayout>
