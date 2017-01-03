@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,6 +33,12 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        SharedPreferences sp = getSharedPreferences("pref", MODE_PRIVATE);
+        String id = sp.getString("id", "null");
+        String pass = sp.getString("pass", "null");
+        if(!id.equals("null") && !pass.equals("null")){
+            new LoginAsynTask().execute(id, pass);
+        }
         edit_id = (EditText) findViewById(R.id.edit_login_id);
         edit_pass = (EditText) findViewById(R.id.edit_login_pass);
 

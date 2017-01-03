@@ -1,5 +1,6 @@
 package com.example.dudco.whatsyourname;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -47,40 +48,44 @@ public class ConfigActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case android.R.id.home : finish(); break;
             case R.id.done :
-                HashMap<String, Object>params = new HashMap<>();
-                params.put("id", "test3");
+                SharedPreferences sp = getSharedPreferences("pref", MODE_PRIVATE);
+                String id = sp.getString("id", "null");
 
-                if(!edit_email.getText().toString().isEmpty()){
-                    params.put("email", edit_email.getText().toString());
-                }
-                if(!edit_career.getText().toString().isEmpty()){
-                    params.put("career", edit_career.getText().toString());
-                }
-                if(!edit_belong.getText().toString().isEmpty()){
-                    params.put("belong", edit_belong.getText().toString());
-                }
-                if(!edit_pax.getText().toString().isEmpty()){
-                    params.put("pax", edit_pax.getText().toString());
-                }
-                if(!edit_des.getText().toString().isEmpty()){
-                    params.put("des", edit_des.getText().toString());
-                }
+                if(!id.equals("null")) {
+                    HashMap<String, Object> params = new HashMap<>();
+                    params.put("id", id);
 
-                aq.ajax("http://iwin247.net:3000/update", params, String.class, new AjaxCallback<String>(){
-                    @Override
-                    public void callback(String url, String object, AjaxStatus status) {
+                    if (!edit_email.getText().toString().isEmpty()) {
+                        params.put("email", edit_email.getText().toString());
+                    }
+                    if (!edit_career.getText().toString().isEmpty()) {
+                        params.put("career", edit_career.getText().toString());
+                    }
+                    if (!edit_belong.getText().toString().isEmpty()) {
+                        params.put("belong", edit_belong.getText().toString());
+                    }
+                    if (!edit_pax.getText().toString().isEmpty()) {
+                        params.put("pax", edit_pax.getText().toString());
+                    }
+                    if (!edit_des.getText().toString().isEmpty()) {
+                        params.put("des", edit_des.getText().toString());
+                    }
+
+                    aq.ajax("http://iwin247.net:3000/update", params, String.class, new AjaxCallback<String>() {
+                        @Override
+                        public void callback(String url, String object, AjaxStatus status) {
 //                        Log.d("dudco", status.getCode() + "  " + status.getMessage());
 //                        Log.d("dudco", url);
 //                        Log.d("dudco", status.getCode() +"  " + status.getMessage());
 //                        UserData user = new Gson().fromJson(object, UserData.class);
 //                        Log.d("dudco", user.toString());
-                        if(status.getCode() == 200){
-                            Toast.makeText(ConfigActivity.this, "업데이트 성공!", Toast.LENGTH_SHORT).show();
-                            finish();
+                            if (status.getCode() == 200) {
+                                Toast.makeText(ConfigActivity.this, "업데이트 성공!", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
                         }
-                    }
-                });
-
+                    });
+                }
                 break;
         }
         return super.onOptionsItemSelected(item);
